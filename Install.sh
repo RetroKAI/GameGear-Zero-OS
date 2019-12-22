@@ -89,6 +89,11 @@ echo -n "Downloading GameGearZero files..."
 		echo "ERROR"
 	fi
 	
+	echo "configuration Sound i2c.."
+	echo "copy files.."
+	mv /tmp/asound.conf /etc/asound.conf
+	
+	
 		echo -n "REBOOT NOW? [y/N]"
 	read
 	if [[ "$REPLY" =~ ^(yes|y|Y)$ ]]; then
