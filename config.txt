@@ -1,0 +1,30 @@
+
+#overclocking extreme
+arm_freq=1060
+core_freq=410
+sdram_freq=600
+over_voltage=7
+over_voltage_sdram=5
+
+# sdram_freq=600
+# over_voltage=8
+# over_voltage_sdram=6
+force_turbo=1
+# HDMI FBCP
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt=320 224 60 1 0 0 0
+hdmi_force_hotplug=1
+
+# dtparam=spi=on
+# dtoverlay=pitft28-capacitive,rotate=180,speed=30000000,fps=22
+
+disable_overscan=1
+# Enable audio (loads snd_bcm2835)
+
+dtoverlay=hifiberry-dac
+# dtparam=audio=on
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+# overscan_scale=1

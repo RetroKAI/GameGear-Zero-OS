@@ -1,0 +1,17 @@
+[Unit]
+Description=juj fbcp driver
+DefaultDependencies=no 
+Before=local-fs-pre.target
+Wants=local-fs-pre.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=2
+User=root
+ExecStart=/boot/TFT
+
+[Install]
+WantedBy=sysinit.target
+
