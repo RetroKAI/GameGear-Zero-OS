@@ -47,6 +47,19 @@ echo -n "Downloading GameGearZero files..."
 	echo "OK"
 	sleep 4
 	
+	echo "Setup Services..."
+	
+	if [ $? -eq 0 ]; then
+		mv /tmp/TFT /boot/TFT
+		mv /tmp/TFT.service /etc/systemd/system/TFT.service
+		systemctl enable TFT
+		systemctl restart TFT
+		systemctl status TFT
+		echo "OK"
+	else
+		echo "ERROR"
+	fi
+	
 	
 		
 
