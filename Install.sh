@@ -42,12 +42,41 @@ echo -n "Downloading GameGearZero files..."
 	curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
 	curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
 	curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame.cfg
-	curl -f -s -o /tmp/GPIO.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GPIO.service
+	curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
 	curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
 	echo "OK"
 	sleep 4
 	
-	echo "Setup Services..."
+	echo "Copy Files Config boot"
+	
+	if [ $? -eq 0 ]; then
+		mv /tmp/config.txt /boot/config.txt
+		mv /tmp/retrogame.cfg /boot/retrogame.cfg
+	
+	echo "OK"
+	else
+		echo "ERROR"
+	fi
+	
+	sleep 4
+	clear
+	
+	
+	echo "Setup Services TFT/GamePAD"
+	if [ $? -eq 0 ]; then
+		mv /tmp/retrogame /boot/retrogame
+		mv /tmp/GAMEPAD.service /etc/systemd/system/GAMEPAD.service
+		chmod 755 /boot/retrogame
+		echo "SUBSYSTEM==\"input\", ATTRS{name}==\"retrogame\", ENV{ID_INPUT_KEYBOARD}=\"1\"" > /etc/udev/rules.d/10-retrogame.rules
+		systemctl enable GAMEPAD
+		systemctl restart GAMEPAD
+		systemctl status GAMEPAD
+		
+		
+		echo "OK"
+	else
+		echo "ERROR"
+	fi
 	
 	if [ $? -eq 0 ]; then
 		mv /tmp/TFT /boot/TFT
@@ -58,6 +87,16 @@ echo -n "Downloading GameGearZero files..."
 		echo "OK"
 	else
 		echo "ERROR"
+	fi
+	
+		echo -n "REBOOT NOW? [y/N]"
+	read
+	if [[ "$REPLY" =~ ^(yes|y|Y)$ ]]; then
+		echo "Reboot started..."
+		reboot
+	#else
+		echo
+		echo "Done"
 	fi
 	
 	
