@@ -47,6 +47,6 @@ echo -n "Downloading GameGearZero files..."
 	
 	
 		
-
+clear
 
 
