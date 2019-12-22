@@ -28,20 +28,20 @@ echo -n "Downloading GameGearZero files..."
 	sleep 5
 	echo "Adafruit-retrogame.."
 	sleep 2
-	curl -f -s -o /tmp/retrogame https://github.com/kaiseru/GameGearZero/blob/master/retrogame
+	curl -f -s -o /tmp/retrogame https://github.com/kaiseru/GameGearZero/raw/master/retrogame
 	sleep 2
 	echo "TFT Driver JUJ..."
 	sleep 2
-    curl -f -s -o /tmp/TFT https://github.com/kaiseru/GameGearZero/blob/master/TFT
+    curl -f -s -o /tmp/TFT https://github.com/kaiseru/GameGearZero/raw/master/TFT
 	sleep 2
 	echo "theme-gbz35 Rxbrad .."
-	curl -f -s -o /tmp/GBZ35 https://github.com/rxbrad/es-theme-gbz35.git
+	## curl -f -s -o /tmp/GBZ35 https://github.com/rxbrad/es-theme-gbz35.git
     sleep 2
 	echo " Downloading Configuration files.."
-	curl -f -s -o /tmp/config.txt https://github.com/kaiseru/GameGearZero/blob/master/config.txt
-	curl -f -s -o /tmp/asound.conf https://github.com/kaiseru/GameGearZero/blob/master/asound.conf
-	curl -f -s -o /tmp/retrogame.cfg https://github.com/kaiseru/GameGearZero/blob/master/retrogame.cfg
-	curl -f -s -o /tmp/GPIO.service https://github.com/kaiseru/GameGearZero/blob/master/GPIO.service
+	curl -f -s -o /tmp/config.txt https://github.com/kaiseru/GameGearZero/raw/master/config.txt
+	curl -f -s -o /tmp/asound.conf https://github.com/kaiseru/GameGearZero/raw/master/asound.conf
+	curl -f -s -o /tmp/retrogame.cfg https://github.com/kaiseru/GameGearZero/raw/master/retrogame.cfg
+	curl -f -s -o /tmp/GPIO.service https://github.com/kaiseru/GameGearZero/raw/master/GPIO.service
 	echo "OK"
 	sleep 4
 	
