@@ -36,14 +36,15 @@ echo -n "Downloading GameGearZero files..."
     curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
 	sleep 2
 	echo "anthonycaccese Theme TFT.."
-	## curl -f -s -o /tmp/GBZ35 https://github.com/anthonycaccese/es-theme-tft
-    sleep 2
+	curl -L -f -o /tmp/ThemeTFT.zip https://github.com/kaiseru/GameGearZero/raw/master/ThemeTFT.zip
+	sleep 2
 	echo "Downloading Configuration files.."
 	curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
 	curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
 	curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame.cfg
 	curl -f -s -o /tmp/retroarch.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retroarch.cfg
 	curl -f -s -o /tmp/es_input.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_input.cfg
+	curl -f -s -o /tmp/es_settings.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_settings.cfg
 	curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
 	curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
 	echo "OK"
@@ -55,6 +56,7 @@ echo -n "Downloading GameGearZero files..."
 		mv /tmp/config.txt /boot/config.txt
 		mv /tmp/retroarch.cfg /opt/retropie/configs/all/retroarch.cfg
 		mv /tmp/es_input.cfg /opt/retropie/configs/all/emulationstation/es_input.cfg
+		mv /tmp/es_settings.cfg /opt/retropie/configs/all/emulationstation/es_settings.cfg
 		mv /tmp/retrogame.cfg /boot/retrogame.cfg
 	
 	echo "OK"
@@ -88,6 +90,22 @@ echo -n "Downloading GameGearZero files..."
 		systemctl enable TFT
 		systemctl restart TFT
 		systemctl status TFT
+		echo "OK"
+	else
+		echo "ERROR"
+	fi
+	
+	echo "Setup ThemeTFT"
+	if [ $? -eq 0 ]; then
+	unzip -o /tmp/ThemeTFT.zip
+	sleep 2
+	clear
+	echo "Copy Theme..."
+    mv /tmp/tft /etc/emulationstation/themes/tft
+	rm /tmp/ThemeTFT.zip
+		
+		
+		
 		echo "OK"
 	else
 		echo "ERROR"
