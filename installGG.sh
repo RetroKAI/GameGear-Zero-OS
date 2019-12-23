@@ -33,7 +33,7 @@ echo -n "Downloading GameGearZero files..."
 	sleep 2
 	echo "TFT Driver JUJ..."
 	sleep 2
-    curl -f -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
+        curl -f -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
 	sleep 2
 	echo "anthonycaccese Theme TFT.."
 	curl -L -f -o /tmp/ThemeTFT.zip https://github.com/kaiseru/GameGearZero/raw/master/ThemeTFT.zip
