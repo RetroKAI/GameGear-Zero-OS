@@ -29,11 +29,11 @@ echo -n "Downloading GameGearZero files..."
 	echo
 	echo "Adafruit-retrogame.."
 	sleep 2
-	curl -f -s -o /tmp/retrogame https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame
+	curl -f -o /tmp/retrogame https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame
 	sleep 2
 	echo "TFT Driver JUJ..."
 	sleep 2
-    curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
+    curl -f -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
 	sleep 2
 	echo "anthonycaccese Theme TFT.."
 	curl -L -f -o /tmp/ThemeTFT.zip https://github.com/kaiseru/GameGearZero/raw/master/ThemeTFT.zip
