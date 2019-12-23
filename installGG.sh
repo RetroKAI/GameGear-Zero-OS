@@ -97,7 +97,7 @@ echo -n "Downloading GameGearZero files..."
 	
 	echo "Setup ThemeTFT"
 	if [ $? -eq 0 ]; then
-	unzip -o /tmp/ThemeTFT.zip
+	unzip -o /tmp/ThemeTFT.zip -d /tmp/
 	sleep 2
 	clear
 	echo "Copy Theme..."
