@@ -11,7 +11,7 @@ echo "This script downloads and installs"
 echo "retrogame, a GPIO-to-keypress utility"
 echo "TFT driver juj"
 echo "I2C Sound"
-echo "Theme 3.5 GBZ"
+echo "Theme Special 240P anthonycaccese"
 echo "one of several configuration files."
 echo "Run time <5 minutes. Reboot recommended."
 echo
@@ -43,6 +43,7 @@ echo -n "Downloading GameGearZero files..."
 	curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
 	curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame.cfg
 	curl -f -s -o /tmp/retroarch.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retroarch.cfg
+	curl -f -s -o /tmp/es_input.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_input.cfg
 	curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
 	curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
 	echo "OK"
@@ -53,6 +54,7 @@ echo -n "Downloading GameGearZero files..."
 	if [ $? -eq 0 ]; then
 		mv /tmp/config.txt /boot/config.txt
 		mv /tmp/retroarch.cfg /opt/retropie/configs/all/retroarch.cfg
+		mv /tmp/es_input.cfg /opt/retropie/configs/all/emulationstation/es_input.cfg
 		mv /tmp/retrogame.cfg /boot/retrogame.cfg
 	
 	echo "OK"
