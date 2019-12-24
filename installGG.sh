@@ -58,7 +58,7 @@ echo -n "Downloading GameGearZero files..."
 	curl -f -s -o /tmp/es_settings.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_settings.cfg
 	curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
 	curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
-	echo "OK"
+	echo "Downloading is complete.."
 	sleep 4
 	
 	echo "Copy Files Config boot"
@@ -76,25 +76,36 @@ echo -n "Downloading GameGearZero files..."
 		echo "ERROR"
 	fi
 	
-	echo "Setup Icon launcher.."
+	echo "Setup Icon launcher and Theme TFT.."
+	sleep 4
 	if [ $? -eq 0 ]; then
 	unzip -o /tmp/command-splash.zip -d /opt/retropie/
-	sleep 2
-	clear
-	echo "Copy Theme..."
    	rm /tmp/command-splash.zip
-		
-		
-		
-		echo "OK"
 	else
 		echo "ERROR"
 	fi
 	
-	
+	if [ $? -eq 0 ]; then
+	unzip -o /tmp/ThemeTFT.zip -d /etc/emulationstation/themes/
+	sleep 4
+	clear
+	echo "Copy Theme and icons complete..."
+    rm /tmp/ThemeTFT.zip
+	else
+		echo "ERROR"
+	fi
+		
 	sleep 4
 	clear
 	
+	echo "configuration Sound i2c.."
+	echo "copy files.."
+	sleep 3
+	mv /tmp/asound.conf /etc/asound.conf
+	amixer set PCM -- 180
+	echo "volume is adjusted.."
+	sleep 4
+	clear
 	
 	echo "Setup Services TFT/GamePAD"
 	if [ $? -eq 0 ]; then
@@ -107,7 +118,7 @@ echo -n "Downloading GameGearZero files..."
 		systemctl status GAMEPAD
 		
 		
-		echo "OK"
+		echo "GAMEPAD ENABLED"
 	else
 		echo "ERROR"
 	fi
@@ -118,32 +129,15 @@ echo -n "Downloading GameGearZero files..."
 		systemctl enable TFT
 		systemctl restart TFT
 		systemctl status TFT
-		echo "OK"
+		echo "TFT ENABLED"
 	else
 		echo "ERROR"
 	fi
+	sleep 4
 	
-	echo "Setup ThemeTFT"
-	if [ $? -eq 0 ]; then
-	unzip -o /tmp/ThemeTFT.zip -d /etc/emulationstation/themes/
-	sleep 2
 	clear
-	echo "Copy Theme..."
-    rm /tmp/ThemeTFT.zip
 		
-		
-		
-		echo "OK"
-	else
-		echo "ERROR"
-	fi
 	
-	echo "configuration Sound i2c.."
-	echo "copy files.."
-	sleep 3
-	mv /tmp/asound.conf /etc/asound.conf
-	amixer set PCM -- 180
-	clear
 	
 	echo " SETUP COMPLETE !"
 	echo " ----------------"
