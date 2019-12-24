@@ -17,7 +17,7 @@ Connect to SSH or local hdmi with keyboard
 
 Download the scrypt :
 ```shell
-curl https://raw.githubusercontent.com/kaiseru/GameGearZero/master/installGG.sh >installGG.sh
+curl -f https://raw.githubusercontent.com/kaiseru/GameGearZero/master/installGG.sh >installGG.sh
 ```
 The script is executed with :
 ```shell
