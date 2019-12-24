@@ -8,6 +8,7 @@ fi
 
 clear
 echo "This script downloads and installs"
+echo "icon loading"
 echo "retrogame, a GPIO-to-keypress utility"
 echo "TFT driver juj"
 echo "I2C Sound"
@@ -31,13 +32,22 @@ echo -n "Downloading GameGearZero files..."
 	sleep 2
 	curl -f -o /tmp/retrogame https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame
 	sleep 2
+	echo
 	echo "TFT Driver JUJ..."
 	sleep 2
         curl -f -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
 	sleep 2
+	echo
 	echo "anthonycaccese Theme TFT.."
 	curl -L -f -o /tmp/ThemeTFT.zip https://github.com/kaiseru/GameGearZero/raw/master/ThemeTFT.zip
 	sleep 2
+	echo
+	echo "Icon loading emulator .."
+	curl -L -f -o /tmp/command-splash.zip https://github.com/kaiseru/GameGearZero/raw/master/command-splash.zip
+	
+	sleep 2
+	echo 
+	
 	echo "Downloading Configuration files.."
 	curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
 	curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
@@ -63,6 +73,22 @@ echo -n "Downloading GameGearZero files..."
 	else
 		echo "ERROR"
 	fi
+	
+	echo "Setup Icon launcher.."
+	if [ $? -eq 0 ]; then
+	unzip -o /tmp/command-splash.zip -d /opt/retropie/
+	sleep 2
+	clear
+	echo "Copy Theme..."
+   	rm /tmp/command-splash.zip
+		
+		
+		
+		echo "OK"
+	else
+		echo "ERROR"
+	fi
+	
 	
 	sleep 4
 	clear
@@ -97,12 +123,11 @@ echo -n "Downloading GameGearZero files..."
 	
 	echo "Setup ThemeTFT"
 	if [ $? -eq 0 ]; then
-	unzip -o /tmp/ThemeTFT.zip -d /tmp/
+	unzip -o /tmp/ThemeTFT.zip -d /etc/emulationstation/themes/
 	sleep 2
 	clear
 	echo "Copy Theme..."
-    mv /tmp/tft /etc/emulationstation/themes/tft
-	rm /tmp/ThemeTFT.zip
+    rm /tmp/ThemeTFT.zip
 		
 		
 		
@@ -114,6 +139,7 @@ echo -n "Downloading GameGearZero files..."
 	echo "configuration Sound i2c.."
 	echo "copy files.."
 	mv /tmp/asound.conf /etc/asound.conf
+	amixer set PCM -- 125
 	
 	
 		echo -n "REBOOT NOW? [y/N]"
@@ -128,6 +154,5 @@ echo -n "Downloading GameGearZero files..."
 	
 	
 		
-
 
 
