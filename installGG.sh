@@ -53,6 +53,7 @@ echo -n "Downloading GameGearZero files..."
 	curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
 	curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame.cfg
 	curl -f -s -o /tmp/retroarch.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retroarch.cfg
+	curl -f -s -o /tmp/runcommand.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/runcommand.cfg
 	curl -f -s -o /tmp/es_input.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_input.cfg
 	curl -f -s -o /tmp/es_settings.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_settings.cfg
 	curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
@@ -67,6 +68,7 @@ echo -n "Downloading GameGearZero files..."
 		mv /tmp/retroarch.cfg /opt/retropie/configs/all/retroarch.cfg
 		mv /tmp/es_input.cfg /opt/retropie/configs/all/emulationstation/es_input.cfg
 		mv /tmp/es_settings.cfg /opt/retropie/configs/all/emulationstation/es_settings.cfg
+		mv /tmp/runcommand.cfg /opt/retropie/configs/all/runcommand.cfg
 		mv /tmp/retrogame.cfg /boot/retrogame.cfg
 	
 	echo "OK"
@@ -138,8 +140,18 @@ echo -n "Downloading GameGearZero files..."
 	
 	echo "configuration Sound i2c.."
 	echo "copy files.."
+	sleep 3
 	mv /tmp/asound.conf /etc/asound.conf
-	amixer set PCM -- 125
+	amixer set PCM -- 180
+	clear
+	
+	echo " SETUP COMPLETE !"
+	echo " ----------------"
+	echo "
+	
+	
+	"
+	
 	
 	
 		echo -n "REBOOT NOW? [y/N]"
