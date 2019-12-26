@@ -90,7 +90,7 @@ echo -n "Downloading GameGearZero files..."
 	sleep 4
 	clear
 	echo "Copy Theme and icons complete..."
-    rm /tmp/ThemeTFT.zip
+        rm /tmp/ThemeTFT.zip
 	else
 		echo "ERROR"
 	fi
@@ -116,8 +116,6 @@ echo -n "Downloading GameGearZero files..."
 		systemctl enable GAMEPAD
 		systemctl restart GAMEPAD
 		systemctl status GAMEPAD
-		
-		
 		echo "GAMEPAD ENABLED"
 	else
 		echo "ERROR"
