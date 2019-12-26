@@ -152,6 +152,7 @@ echo -n "Downloading GameGearZero files..."
 	read
 	if [[ "$REPLY" =~ ^(yes|y|Y)$ ]]; then
 		echo "Reboot started..."
+		rm installGG.sh
 		reboot
 	#else
 		echo
