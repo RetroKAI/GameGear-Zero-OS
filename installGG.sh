@@ -64,12 +64,21 @@ echo -n "Downloading GameGearZero files..."
 	echo "Copy Files Config boot"
 	
 	if [ $? -eq 0 ]; then
+	chown -hR pi:pi /tmp/opt/
 		mv /tmp/config.txt /boot/config.txt
 		mv /tmp/retroarch.cfg /opt/retropie/configs/all/retroarch.cfg
 		mv /tmp/es_input.cfg /opt/retropie/configs/all/emulationstation/es_input.cfg
 		mv /tmp/es_settings.cfg /opt/retropie/configs/all/emulationstation/es_settings.cfg
 		mv /tmp/runcommand.cfg /opt/retropie/configs/all/runcommand.cfg
 		mv /tmp/retrogame.cfg /boot/retrogame.cfg
+		chown pi:pi /opt/retropie/configs/all/retroarch.cfg
+		chown pi:pi /opt/retropie/configs/all/emulationstation/es_input.cfg
+		chown pi:pi /opt/retropie/configs/all/emulationstation/es_settings.cfg
+		chown pi:pi /opt/retropie/configs/all/runcommand.cfg
+		
+	
+	
+	
 	
 	echo "OK"
 	else
@@ -90,7 +99,7 @@ echo -n "Downloading GameGearZero files..."
 	sleep 4
 	clear
 	echo "Copy Theme and icons complete..."
-        rm /tmp/ThemeTFT.zip
+    rm /tmp/ThemeTFT.zip
 	else
 		echo "ERROR"
 	fi
@@ -102,6 +111,7 @@ echo -n "Downloading GameGearZero files..."
 	echo "copy files.."
 	sleep 3
 	mv /tmp/asound.conf /etc/asound.conf
+	
 	amixer set PCM -- 180
 	echo "volume is adjusted.."
 	sleep 4
@@ -116,6 +126,8 @@ echo -n "Downloading GameGearZero files..."
 		systemctl enable GAMEPAD
 		systemctl restart GAMEPAD
 		systemctl status GAMEPAD
+		
+		
 		echo "GAMEPAD ENABLED"
 	else
 		echo "ERROR"
@@ -150,9 +162,8 @@ echo -n "Downloading GameGearZero files..."
 	read
 	if [[ "$REPLY" =~ ^(yes|y|Y)$ ]]; then
 		echo "Reboot started..."
-		rm installGG.sh
 		reboot
-	else
+	#else
 		echo
 		echo "Done"
 	fi
