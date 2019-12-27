@@ -152,7 +152,7 @@ echo -n "Downloading GameGearZero files..."
 		echo "Reboot started..."
 		rm installGG.sh
 		reboot
-	#else
+	else
 		echo
 		echo "Done"
 	fi
