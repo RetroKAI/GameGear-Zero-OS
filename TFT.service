@@ -11,6 +11,7 @@ Restart=always
 RestartSec=2
 User=root
 ExecStart=/boot/TFT
+CPUSchedulingPriority = 80
 
 [Install]
 WantedBy=sysinit.target
