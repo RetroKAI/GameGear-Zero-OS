@@ -54,6 +54,8 @@ systemctl restart TFT
 
 }
 
+#### TFT SAVE#####
+
 ### TFT STAT ####
 
 TFTSTAT(){
@@ -270,8 +272,32 @@ fi
 
 2)
 
+TFTSELECT=$(whiptail --title "TFT Driver Install" --radiolist \
+"Choose driver TFT install ?" 15 60 4 \
+"TFTINSTALL" "Driver Default" ON \
+"TFTSTAT" "Driver statistic" OFF \
+"TFTSTATGRAPH" "Driver Graph Stat" OFF \
+"TFTSAVE" "Driver who drop FPS but save battery" OFF 3>&1 1>&2 2>&3)
 
+exitstatus=$?
+if [ $exitstatus = 0 ]; then
 
+TERM=ansi whiptail --title "Install Driver TFT" --infobox "Your Choice is : $TFTSELECT" 10 35
+sleep 3
+clear
+else
+TERM=ansi whiptail --title "Install Driver TFT" --infobox "Canceled" 10 30
+sleep 3
+clear
+AdvMenu
+    fi
+if [ $TFTSELECT = "TFTINSTALL" ]; then
+DRIVERTFT='DEFAULT'
+elif [ $TFTSELECT = "TFTSTAT" ]; then
+DRIVERTFT='STATISTIC'
+elif [ $TFTSELECT = "TFTSTATGRAPH" ]; then
+DRIVERTFT='GRAPH'
+fi
 
 for bar in $(seq 1 100); do
     sleep 0.1
@@ -283,7 +309,7 @@ echo -e "XXX\n$bar\n Progress..  \nXXX"
 elif [ $bar -eq 30 ]; then
 echo -e "XXX\n$bar\n Progress...  \nXXX"
 elif [ $bar -eq 60 ]; then
-TFTSTAT
+$TFTSELECT
 echo -e "XXX\n$bar\n $ProgressBar \nXXX"
 elif [ $bar -eq 70 ]; then
 TFTSERVICE
@@ -294,7 +320,7 @@ sleep 1
 else
     echo $bar
 fi
-done | whiptail --title 'INSTALL DRIVER TFT' --gauge "Progress" 6 60 0
+done | whiptail --title " INSTALL DRIVER TFT $DRIVERTFT " --gauge "Progress" 6 60 0
 AdvMenu
 
       ;;
@@ -432,4 +458,3 @@ fi
 esac
 }
 AdvMenu
-
