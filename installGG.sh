@@ -38,23 +38,23 @@ echo -ne '\n'
 TFTINSTALL(){
 ProgressBar='TFT DRIVER INSTALL...'
 sleep 1
-curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTDEFAULT/TFT
 curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
 }
-### TFT SERVICE #####
-TFTSERVICE(){
-ProgressBar='TFT SERVICE ENABLE...'
-sleep 1
-curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
-mv /tmp/TFT.service /etc/systemd/system/TFT.service
-systemctl enable TFT
-systemctl restart TFT
 
-}
 
 #### TFT SAVE#####
+TFTSAVE(){
+ProgressBar='TFT SAVE BATTERY DRIVER INSTALL...'
+sleep 1
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTSAVEBAT/TFT
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+mv /tmp/config.txt /boot/config.txt
+mv /tmp/TFT /boot/TFT
+}
+
 
 ### TFT STAT ####
 
@@ -74,6 +74,16 @@ curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/ma
 curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
+}
+
+### TFT SERVICE #####
+TFTSERVICE(){
+ProgressBar='TFT SERVICE ENABLE...'
+sleep 1
+curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
+mv /tmp/TFT.service /etc/systemd/system/TFT.service
+systemctl enable TFT
+systemctl restart TFT
 }
 
 
@@ -275,9 +285,9 @@ fi
 TFTSELECT=$(whiptail --title "TFT Driver Install" --radiolist \
 "Choose driver TFT install ?" 15 60 4 \
 "TFTINSTALL" "Driver Default" ON \
+"TFTSAVE" "Driver who drop FPS but save battery" OFF \
 "TFTSTAT" "Driver statistic" OFF \
-"TFTSTATGRAPH" "Driver Graph Stat" OFF \
-"TFTSAVE" "Driver who drop FPS but save battery" OFF 3>&1 1>&2 2>&3)
+"TFTSTATGRAPH" "Driver Graph Stat" OFF 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
