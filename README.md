@@ -15,7 +15,7 @@ The added elements are the following:
 Connect to you Game Gear Zero via SSH or plug a keyboard and a screen to your Raspberry Pi Zero.
 
 ```
-Default username: pie
+Default username: pi
 Default password: raspberry
 ```
 
@@ -23,12 +23,6 @@ Download & execute the script :
 
 ```shell
 curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/installGG.sh && sudo bash installGG.sh
-```
-
-If you don't have internet on the Raspberry Pi Zero you can just download all the files, copy it to your Raspberry Pi using an USB storage device and execute the following command:
-
-```
-sudo bash installGG.sh
 ```
 
 ## Acknowledgments
