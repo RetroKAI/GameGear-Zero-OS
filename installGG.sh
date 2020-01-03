@@ -38,8 +38,8 @@ echo -ne '\n'
 TFTINSTALL(){
 ProgressBar='TFT DRIVER INSTALL...'
 sleep 1
-curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTDEFAULT/TFT
-curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/TFTDEFAULT/TFT
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
 }
@@ -49,8 +49,8 @@ mv /tmp/TFT /boot/TFT
 TFTSAVE(){
 ProgressBar='TFT SAVE BATTERY DRIVER INSTALL...'
 sleep 1
-curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTSAVEBAT/TFT
-curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/TFTSAVEBAT/TFT
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
 }
@@ -61,8 +61,8 @@ mv /tmp/TFT /boot/TFT
 TFTSTAT(){
 ProgressBar='TFT STAT DRIVER INSTALL...'
 sleep 1
-curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTSTAT/TFT
-curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/TFTSTAT/TFT
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
 }
@@ -70,8 +70,8 @@ mv /tmp/TFT /boot/TFT
 TFTSTATGRAPH(){
 ProgressBar='TFT STAT GRAPH DRIVER INSTALL...'
 sleep 1
-curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFTSTAT/TFTGRAPH/TFT
-curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+curl -f -s -o /tmp/TFT https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/TFTSTAT/TFTGRAPH/TFT
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/TFT /boot/TFT
 }
@@ -80,7 +80,7 @@ mv /tmp/TFT /boot/TFT
 TFTSERVICE(){
 ProgressBar='TFT SERVICE ENABLE...'
 sleep 1
-curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/TFT.service
+curl -f -s -o /tmp/TFT.service https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/TFT.service
 mv /tmp/TFT.service /etc/systemd/system/TFT.service
 systemctl enable TFT
 systemctl restart TFT
@@ -90,8 +90,8 @@ systemctl restart TFT
 ####  SOUND INSTALL####
 SNDINSTALL(){
 ProgressBar='SOUND INSTALL...'
-curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/kaiseru/GameGearZero/master/asound.conf
-curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/kaiseru/GameGearZero/master/config.txt
+curl -f -s -o /tmp/asound.conf https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/asound.conf
+curl -f -s -o /tmp/config.txt https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/config.txt
 mv /tmp/config.txt /boot/config.txt
 mv /tmp/asound.conf /etc/asound.conf
 sleep 1
@@ -106,10 +106,10 @@ amixer set PCM -- 180
 #### GAME PAD #####
 GAMEPADINSTALL(){
 ProgressBar='GAME PAD INSTALL...'
-curl -f -s -o /tmp/retrogame https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame
-curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retrogame.cfg
-curl -f -s -o /tmp/retroarch.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/retroarch.cfg
-curl -f -s -o /tmp/es_input.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_input.cfg
+curl -f -s -o /tmp/retrogame https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/retrogame
+curl -f -s -o /tmp/retrogame.cfg https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/retrogame.cfg
+curl -f -s -o /tmp/retroarch.cfg https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/retroarch.cfg
+curl -f -s -o /tmp/es_input.cfg https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/es_input.cfg
 mv /tmp/retrogame /boot/retrogame
 mv /tmp/retrogame.cfg /boot/retrogame.cfg
 sleep 1
@@ -125,7 +125,7 @@ chown pi:pi /opt/retropie/configs/all/emulationstation/es_input.cfg
 PADSERVICE(){
 ProgressBar='GAME PAD SERVICE ENABLE...'
 sleep 1
-curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/kaiseru/GameGearZero/master/GAMEPAD.service
+curl -f -s -o /tmp/GAMEPAD.service https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/GAMEPAD.service
 mv /tmp/GAMEPAD.service /etc/systemd/system/GAMEPAD.service
 systemctl enable GAMEPAD
 systemctl restart GAMEPAD
@@ -135,8 +135,8 @@ systemctl restart GAMEPAD
 #### THEME TFT ######
 THEMETFT(){
 ProgressBar='THEME TFT INSTALL...'
-curl -f -s -o /tmp/es_settings.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/es_settings.cfg
-curl -L -s -f -o /tmp/ThemeTFT.zip https://github.com/kaiseru/GameGearZero/raw/master/ThemeTFT.zip
+curl -f -s -o /tmp/es_settings.cfg https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/es_settings.cfg
+curl -L -s -f -o /tmp/ThemeTFT.zip https://github.com/RetroKAI/GameGearZero/raw/master/ThemeTFT.zip
 unzip -o /tmp/ThemeTFT.zip -d /etc/emulationstation/themes/
 sleep 1
 rm /tmp/ThemeTFT.zip
@@ -147,8 +147,8 @@ chown pi:pi /opt/retropie/configs/all/emulationstation/es_settings.cfg
 #### LOADING EMULATOR ####
 LOADEMULATOR(){
 ProgressBar='EMULATOR ICON LOADING INSTALL...'
-curl -f -s -o /tmp/runcommand.cfg https://raw.githubusercontent.com/kaiseru/GameGearZero/master/runcommand.cfg
-curl -L -s -f -o /tmp/command-splash.zip https://github.com/kaiseru/GameGearZero/raw/master/command-splash.zip
+curl -f -s -o /tmp/runcommand.cfg https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/runcommand.cfg
+curl -L -s -f -o /tmp/command-splash.zip https://github.com/RetroKAI/GameGearZero/raw/master/command-splash.zip
 sleep 0.2
 mv /tmp/runcommand.cfg /opt/retropie/configs/all/runcommand.cfg
 unzip -o /tmp/command-splash.zip -d /opt/retropie/
