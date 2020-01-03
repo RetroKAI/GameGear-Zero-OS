@@ -1,7 +1,7 @@
 
 #overclocking extreme
 arm_freq=1060
-core_freq=410
+core_freq=430
 
 # sdram_freq=600
 over_voltage=7
