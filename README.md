@@ -22,7 +22,7 @@ Default password: raspberry
 Download & execute the script :
 
 ```shell
-curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/installGG.sh && sudo bash installGG.sh
+curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGear-Zero-OS/master/installGG.sh && sudo bash installGG.sh
 ```
 
 ## Acknowledgments
