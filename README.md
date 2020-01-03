@@ -4,13 +4,13 @@
 
 ## What is this ?
 
-The script installs the following:
+This script installs a modified version of RetroPie. The added elements are the following:
 
-- Juj's TFT SPI driver 60FPS
-- i2s sound driver
-- Retrogame's Adafruit driver
-- anthonycacces's theme designed optimized for 320x240 resolution
-- Setup input EmulationStation / RetroArch
+- Juj's TFT SPI driver to optimize the screen refresh rate around 60 FPS.
+- i2s sound driver to map the sound on the GPIO and transfert it to the Game Gear Zero sound card.
+- Retrogame's Adafruit driver to map the original Game Gear buttons on the GPIO.
+- anthonycacces's theme designed optimized for 320x240 resolution.
+- Configures input mapping in EmulationStation / RetroArch.
 
 
 ## How to install ?
