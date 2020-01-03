@@ -6,7 +6,7 @@
 
 This script installs a modified version of RetroPie. The added elements are the following:
 
-- Juj's TFT SPI driver to optimize the screen refresh rate around 60 FPS.
+- Juj's TFT SPI driver to optimize the screen refresh rate around 60 FPS while using GPIO as video output.
 - i2s sound driver to map the sound on the GPIO and transfert it to the Game Gear Zero sound card.
 - Retrogame's Adafruit driver to map the original Game Gear buttons on the GPIO.
 - anthonycacces's theme designed optimized for 320x240 resolution.
@@ -26,6 +26,12 @@ Download & execute the script :
 
 ```shell
 curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/installGG.sh && sudo bash installGG.sh
+```
+
+If you don't have internet on the Raspberry Pi Zero you can just download all the files, copy it to your Raspberry Pi using an USB storage device and execute the following command:
+
+```
+sudo bash installGG.sh
 ```
 
 ## Acknowledgments
