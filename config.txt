@@ -1,7 +1,7 @@
 
 #overclocking extreme
 arm_freq=1060
-core_freq=435
+core_freq=410
 
 # sdram_freq=600
 over_voltage=7
@@ -14,7 +14,7 @@ force_turbo=1
 # HDMI FBCP
 hdmi_group=2
 hdmi_mode=87
-hdmi_cvt=160 144 60 1 0 0 0
+hdmi_cvt=320 200 60 1 0 0 0
 hdmi_force_hotplug=1
 
 # dtparam=spi=on
