@@ -1,32 +1,30 @@
 
-# GameGearZero version 3 BUTTONS
+# RetroKAI's Game Gear Zero operating system
 
 
+## What is this ?
 
-## Details
-Files Install
-- TFT JUJ driver spi 60FPS
-- Install i2s sound
-- Retrogame GPIO Adafruit
-- Theme anthonycaccese designed and tested at 320x240 resolution
-- Setup input emulation station / retroarch 
+The script installs the following:
+
+- Juj's TFT SPI driver 60FPS
+- i2s sound driver
+- Retrogame's Adafruit driver
+- anthonycacces's theme designed optimized for 320x240 resolution
+- Setup input EmulationStation / RetroArch
 
 
-## Setup install 
-Connect to SSH or local hdmi with keyboard
+## How to install ?
+Connect to you Game Gear Zero via SSH or plug a keyboard and a screen to your Raspberry Pi Zero.
+```Default username: pie
+Default password: raspberry```
 
-Download the scrypt :
+Download & executre the script :
 ```shell
-curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/installGG.sh
-```
-The script is executed with :
-```shell
-sudo bash installGG.sh
+curl -f -o /home/pi/installGG.sh https://raw.githubusercontent.com/RetroKAI/GameGearZero/master/installGG.sh && sudo bash installGG.sh
 ```
 
 ## Acknowledgments
 - JUJ
 - Adafruit
-- Retropie
+- RetroPie
 - Anthonycaccese
-
